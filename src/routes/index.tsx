@@ -3,6 +3,7 @@ import { ArrowRight, Swords, Users } from "lucide-react";
 import { CharacterCard } from "@/components/character-card";
 import { Button } from "@/components/ui/button";
 import { arcs, featuredCharacters, teams, weapons } from "@/data/catalog";
+import { asset } from "@/lib/asset";
 import { useSearchUi } from "@/lib/favorites";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -15,7 +16,7 @@ function Home() {
     <main>
       <section className="relative isolate min-h-[28rem] overflow-hidden border-b border-border lg:min-h-[30rem]">
         <img
-          src="/hero/pitch.jpg"
+          src={asset("/hero/pitch.jpg")}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />

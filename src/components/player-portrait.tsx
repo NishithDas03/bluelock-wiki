@@ -1,5 +1,6 @@
 import type { Character } from "@/data/types";
 import { TONE_VAR } from "@/data/catalog";
+import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
 
 export function PlayerPortrait({
@@ -14,7 +15,7 @@ export function PlayerPortrait({
   if (character.portrait) {
     return (
       <img
-        src={`/portraits/${character.portrait}`}
+        src={asset(`/portraits/${character.portrait}`)}
         alt={character.name}
         className={cn(
           "h-full w-full object-cover",

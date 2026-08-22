@@ -39,7 +39,7 @@ export function SearchCommand() {
       useInspect.getState().open(player[1]);
       return;
     }
-    router.history.push(href);
+    router.navigate({ to: href });
   };
 
   if (!open) return null;
