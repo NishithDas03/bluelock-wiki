@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #07090c;
+  --color-surface: #10141a;
+  --color-surface-2: #171c24;
+  --color-fg: #eef1f5;
+  --color-muted: #8a93a0;
+  --color-subtle: #5c6570;
+  --color-primary: #3b9eff;
+  --color-primary-fg: #041018;
+  --color-border: color-mix(in oklab, #eef1f5 12%, transparent);
+  --color-border-strong: color-mix(in oklab, #eef1f5 22%, transparent);
+  --color-ring: #3b9eff;
+  --color-danger: #c45c5c;
+
+  --color-tone-teal: #3b9eff;
+  --color-tone-crimson: #d06464;
+  --color-tone-silver: #c5ccd4;
+  --color-tone-rose: #d07090;
+  --color-tone-violet: #8b82c4;
+  --color-tone-orange: #d08450;
+  --color-tone-pink: #d07aa0;
+  --color-tone-wine: #a05868;
+  --color-tone-mint: #5ea898;
+  --color-tone-gold: #c4a05a;
+  --color-tone-ink: #6a7380;
+  --color-tone-sky: #6ab0d4;
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
+  --text-3xl: clamp(2.25rem, 1.4rem + 3vw, 3.75rem);
+  --text-4xl: clamp(3rem, 1.6rem + 5vw, 5.5rem);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-primary) 35%, transparent);
+    color: var(--color-fg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.rise-in-1 { animation-delay: 40ms; }
+.rise-in-2 { animation-delay: 80ms; }
+.rise-in-3 { animation-delay: 120ms; }
+.rise-in-4 { animation-delay: 160ms; }
+.rise-in-5 { animation-delay: 200ms; }
